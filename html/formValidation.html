@@ -11,8 +11,14 @@
         function GEEKFORGEEKS() {
             event.preventDefault();
             const data = new FormData(event.target);
-            const value = data.get('EMail');
-            console.log({ value });
+            const details = { name: '', email: '', phone: '', address: '', dob: '', password: '', cars: '' };
+            details.name = data.get('Name');
+            details.email = data.get('EMail');
+            details.phone = data.get('Telephone');
+            details.dob = data.get('dob');
+            details.password = data.get('Password');
+            details.address = data.get('Address');
+            details.cars = data.get('cars');
             var name =
                 document.forms["RegForm"]["Name"];
             var email =
@@ -20,7 +26,7 @@
             var phone =
                 document.forms["RegForm"]["Telephone"];
             var what =
-                document.forms["RegForm"]["Subject"];
+                document.forms["RegForm"]["cars"];
             var password =
                 document.forms["RegForm"]["Password"];
             var address =
@@ -60,13 +66,12 @@
                 return false;
             }
 
-            if (what.selectedIndex < 1) {
+            if (cars.selectedIndex < 1) {
                 alert("Please enter your course.");
-                what.focus();
+                cars.focus();
                 return false;
             }
-            console.log(document.forms['RegForm']);
-
+            console.log(details);
             return true;
         }
     </script>
@@ -278,6 +283,9 @@
                 <input type="reset" value="Reset" name="Reset" />
             </div>
         </form>
+        <div>
+            
+        </div>
     </div>
 </body>
 
